@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color:bisque;
+    padding: 10px;
+    font-family:'Lucida Sans';
+    font-size: 30px;
+}
+
+.show-button{
+    font-size: 24px;
+    background-color: blueviolet;
+    padding: 10px;
+    border: black solid 2px;
+    border-radius: 8px;
+}
+
+.hide-button {
+    font-size: 24px;
+    background-color: salmon;
+    padding: 10px;
+    border: black solid 2px;
+    border-radius: 8px;
+}
+
+.input-search {
+    font-size: 24px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: beige;
+    border: black solid 2px;
+}
