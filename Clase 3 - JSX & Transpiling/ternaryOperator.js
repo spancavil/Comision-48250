@@ -1,0 +1,4 @@
+//Ejemplo If
+
+//Operador ternario
+

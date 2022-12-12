@@ -1,0 +1,4 @@
+https://www.w3schools.com/js/js_es6.asp => Lo nuevo de ECMAScript 6.
+https://developer.mozilla.org/en-US/docs/Glossary/Polyfill => Un poco de polyfills.
+
+https://create-react-app.dev/docs/adding-bootstrap/ => Adding bootstrap
