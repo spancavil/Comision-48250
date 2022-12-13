@@ -5,15 +5,17 @@ const arrayDeFrutas = ["Mango", "pera", "manzana"]
 
 console.log(nombreEncontrado); */
 
-const findConPolyfill = (arrayOriginal, elementoAEncontrar) => {
-    for (let i = 0; i < arrayOriginal.length; i++) {
-        const element = arrayOriginal[i];
-            if (elementoAEncontrar === element)
-                return element
-    }
-    return undefined
+//Solución de Nacho Elisii
+const findConPolyfill = (array,busqueda) => {
+    console.log(array)
+    let elementoEncontrado;
+    array.forEach(element => {
+        if(element === busqueda){ 
+            elementoEncontrado = element
+        }
+    });
+    return elementoEncontrado
 }
 
-const elementoEncontrado = findConPolyfill(arrayDeFrutas, "manzana")
-
+const elementoEncontrado = findConPolyfill(arrayDeFrutas, "cereza")
 console.log(elementoEncontrado);

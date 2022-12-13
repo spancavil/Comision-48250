@@ -1,4 +1,4 @@
-const tuViejoEsZapatero = "Zarpado zapatero";
+const tuViejoEsZapatero = " ";
 const lataZarpada = tuViejoEsZapatero ? true : false;
 
 //Valores falsies: "", 0, null, undefined, NaN, infinity
