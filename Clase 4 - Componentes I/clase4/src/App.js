@@ -1,37 +1,26 @@
 import './App.css';
+import Ad from './components/Ad';
+import NavBar from './components/NavBar';
+import ItemListContainer from './containers/ItemListContainer';
 
 function App() {
 
-  const nombre = "Andres"
-  const placeholder = "Coloque su edad"
-  const btcImage = "https://imgs.search.brave.com/uvUiBJR_ksMUGaOcq98Qs793cjyjzGOZPQyYuc63KgU/rs:fit:769:225:1/g:ce/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5m/Rko0OFA3Szc1N0JI/VTQ2ZDhTM3BBSGFF/ayZwaWQ9QXBp"
+  const temperatura = 29
 
-  const imageStyles = {
-    borderRadius: 10,
-    marginTop: 20
-  }
+  const nombre = "Sebas"
 
   return (
-    <div className="App">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <hr/>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {nombre} wants to learn React
-        </a>
-        <input placeholder = {placeholder} type="number"/>
-        <button className='btn btn-primary p-3'> Press me </button>
-        <img src={btcImage} alt="btc"/>
-        <img style = {imageStyles}
-        src="/Assets/dogeCoin.webp" alt="Doge" />
-    </div>
-  );
+    <>
+      <NavBar 
+        temp={temperatura}
+        name={nombre}
+        />
+      <ItemListContainer greeting={"Hola ke ase"}/>
+      <Ad>
+        <img src="https://imgs.search.brave.com/OaSdZfXa3OI2xbJtSRi7xB7XMBHWxxvYBuWSo1WJl8M/rs:fit:250:225:1/g:ce/aHR0cHM6Ly90c2U0/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC41/TGpZemplcTlNUVZF/OGFia1V4Mi1nQUFB/QSZwaWQ9QXBp" />
+      </Ad>
+    </>
+  ); 
 }
 
 export default App;
