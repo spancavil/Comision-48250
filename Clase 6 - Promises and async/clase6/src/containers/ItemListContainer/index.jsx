@@ -1,23 +1,34 @@
-import React from 'react'
-import PartidoCount from '../../components/PartidoCount'
+import React, { useEffect, useState } from 'react'
+import ItemList from '../../components/ItemList';
+import productos from '../../data/products.json';
 
 const ItemListContainer = ({greeting}) => {
 
-  // Count sería el valor de mi estado, setCount es la función para modificar ese estado.
-  // useState es el hook de React que me permite utilizar estados.
-  // const [count, setCount] = useState(0)
+  const [products, setProducts] = useState([])
 
-  // const sumarContador = () => {
-  //   console.log("Se va a sumar 1");
-  //   setCount(count + 1)
-  // }
+  //Este effect se ejecuta cuando se monta el componente
+  useEffect(()=> {
+
+    const promesa = new Promise((acc, rec) => {
+      setTimeout(() => {
+        acc(productos);
+      }, 3000);
+    });
+
+    promesa
+      .then((result) => {
+        setProducts(result);
+      })
+      .catch((err) => {
+        alert("Hubo un error")
+      });
+
+  }, [])
 
   return (
     <div>
         <h1>{greeting}</h1>
-        {/* <button onClick={sumarContador}>Sumar 1</button>
-        <span>{count}</span> */}
-        <PartidoCount/>
+        <ItemList productos={products}/>
     </div>
   )
 }

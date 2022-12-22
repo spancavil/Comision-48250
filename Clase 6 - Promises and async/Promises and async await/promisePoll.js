@@ -1,6 +1,6 @@
 const promise = new Promise((acc, rej) => {
     setTimeout(() => {
-        rej("Valor devuelto");
+        acc("Array de productos");
     }, 3000);
 });
 

@@ -1,5 +1,5 @@
 //IIFE -- función autoejecutada (no tiene que ser llamada)
- (async () => {
+(async () => {
 
     //Defino una función que me devuelve una promesa
     const obtenerProductos = () => {
@@ -28,3 +28,5 @@
 /* (()=> {
     console.log("Esta función se autoejecuta");
 })() */
+
+// console.log("Me ejecuto")
