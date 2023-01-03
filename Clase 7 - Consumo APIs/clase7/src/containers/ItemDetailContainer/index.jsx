@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from 'react'
-import ItemList from '../../components/ItemList';
+import ItemDetail from '../../components/ItemDetail';
 
-const ItemListContainer = ({greeting}) => {
+const ItemDetailContainer = () => {
 
-  const [products, setProducts] = useState([])
+  const [detail, setDetail] = useState({})
 
   //Este effect se ejecuta cuando se monta el componente
   useEffect(()=> {
 
-    fetch('https://fakestoreapi.com/products')
+    //Obtengo un DETERMINADO producto (el producto con id 10)
+    fetch('https://fakestoreapi.com/products/10')
       .then(response => {
         console.log(response);
         return response.json()
       })
       .then(json => {
         console.log(json)
-        setProducts(json)
+        setDetail(json)
       })
       .catch((err) => {
         alert("Hubo un error")
@@ -23,13 +24,11 @@ const ItemListContainer = ({greeting}) => {
 
   }, [])
 
-  console.log(products)
-
   return (
     <div>
-        <ItemList productos={products}/>
+        <ItemDetail detail={detail}/>
     </div>
   )
 }
 
-export default ItemListContainer
+export default ItemDetailContainer

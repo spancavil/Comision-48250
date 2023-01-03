@@ -1,5 +1,6 @@
 import './App.css';
 import NavBar from './components/NavBar';
+import ItemDetailContainer from './containers/ItemDetailContainer';
 import ItemListContainer from './containers/ItemListContainer';
 
 function App() {
@@ -7,7 +8,8 @@ function App() {
   return (
     <>
       <NavBar />
-      <ItemListContainer greeting={"Hola ke ase"}/>
+      {/* <ItemListContainer greeting={"Hola ke ase"}/> */}
+      <ItemDetailContainer/>
     </>
   ); 
 }
