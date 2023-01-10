@@ -11,6 +11,7 @@ const ItemCount = ({ onAdd, stock, initial }) => {
     const onDecrement = () => {
         if (count > initial) setCount(count - 1);
     };
+
     return (
         <div className="count-container">
             <button className="btn btn-primary p-2" onClick={onDecrement}>-</button>
