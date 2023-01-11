@@ -1,0 +1,28 @@
+.match-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    gap: 20px;
+    .result-container{
+        padding: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 40px;
+        width: 100%;
+    }
+}
+.button-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    .button-count {
+        padding: 8px;
+        border: solid 1px;
+
+    }
+}
