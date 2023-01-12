@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
-import Ad from '../../components/Ad';
+// import Ad from '../../components/Ad';
 import ItemList from '../../components/ItemList';
 
 const ItemListContainer = ({greeting}) => {
@@ -72,7 +72,7 @@ const ItemListContainer = ({greeting}) => {
   return (
     <div>
         <ItemList productos={products}/>
-        {
+        {/* {
           adVisibility === true
           ?
           <Ad>
@@ -88,7 +88,7 @@ const ItemListContainer = ({greeting}) => {
           </Ad>
           :
           null
-        }
+        } */}
     </div>
   )
 }
