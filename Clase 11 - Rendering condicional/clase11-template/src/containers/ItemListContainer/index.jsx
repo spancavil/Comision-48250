@@ -1,4 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, {useState, useEffect} from 'react'
+/* import ButtonConditional from '../../components/TecnicasRendering/ClasesCondicionales'
+import OperadorBinario from '../../components/TecnicasRendering/Operador binario'
+import ReturnTemprano from '../../components/TecnicasRendering/ReturnTemprano'
+import SpreadPropiedades from '../../components/TecnicasRendering/SpreadPropiedades'
+import TernaryOperator from '../../components/TecnicasRendering/TernaryOperator' */
 import { useParams } from 'react-router-dom';
 // import Ad from '../../components/Ad';
 import ItemList from '../../components/ItemList';
@@ -7,14 +12,14 @@ const ItemListContainer = ({greeting}) => {
 
   const [products, setProducts] = useState([])
 
-  const [adVisibility, setAdVisibility] = useState(true)
+  // const [adVisibility, setAdVisibility] = useState(true)
 
   //Lo primero es capturar la categoría que quiero filtrar
   const {categoryId}  = useParams()
   console.log(categoryId)
 
   //On escape it will close
-  useEffect(() => {
+  /* useEffect(() => {
 
     const handleEsc = (event) => {
         console.log(event); //Evento nativo del browser
@@ -32,7 +37,7 @@ const ItemListContainer = ({greeting}) => {
         window.removeEventListener("keydown", handleEsc);
     };
 
-  }, []);
+  }, []); */
 
   //Este effect se ejecuta cuando se monta el componente
   useEffect(()=> {
@@ -58,19 +63,24 @@ const ItemListContainer = ({greeting}) => {
 
   }, [categoryId])
 
-  const handleCloseAd = (event) => {
+/*   const handleCloseAd = (event) => {
     //Evento sintetico de React
     console.log(event);
     setAdVisibility(false)
     //Cerrar el anuncio
-  }
+  } */
 
-  console.log(products)
+  // console.log(products)
 
   //Todos los eventos declarados en el JSX son EVENTOS SINTETICOS.
 
   return (
     <div>
+        {/* <TernaryOperator condition={"2"} /> */}
+        {/* <ReturnTemprano /> */}
+        {/* <OperadorBinario condition1={false} condition2={true}/> */}
+        {/* <ButtonConditional condition={false}/> */}
+        {/* <SpreadPropiedades additionalStyling={{color: 'white', border:'2px solid salmon'}}/> */}
         <ItemList productos={products}/>
         {/* {
           adVisibility === true
@@ -89,6 +99,7 @@ const ItemListContainer = ({greeting}) => {
           :
           null
         } */}
+
     </div>
   )
 }
