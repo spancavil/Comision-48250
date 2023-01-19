@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom';
 import ItemList from '../../components/ItemList';
+import { db } from '../../firebase/config';
+import { collection, getDocs, query, where } from "firebase/firestore"; 
 
 const ItemListContainer = ({greeting}) => {
 
@@ -12,7 +14,28 @@ const ItemListContainer = ({greeting}) => {
   //Este effect se ejecuta cuando se monta el componente
   useEffect(()=> {
 
-    fetch('https://fakestoreapi.com/products')
+    const getProducts = async () => {
+      let querySnapshot;
+      if (categoryId) {
+        const q = query(collection(db, "products"), where("category", "==", categoryId));
+        querySnapshot = await getDocs(q);
+      } else {
+        querySnapshot = await getDocs(collection(db, "products"));
+      }
+      const productosFirebase = [];
+      querySnapshot.forEach((doc) => {
+        const product = {
+          id: doc.id,
+          ...doc.data()
+        }
+        productosFirebase.push(product)
+      });
+      setProducts(productosFirebase)
+    }
+
+    getProducts();
+
+    /* fetch('https://fakestoreapi.com/products')
       .then(response => {
         console.log(response);
         return response.json()
@@ -29,7 +52,7 @@ const ItemListContainer = ({greeting}) => {
       })
       .catch((err) => {
         alert("Hubo un error")
-      });
+      }); */
 
   }, [categoryId])
 
