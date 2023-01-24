@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import ItemDetail from '../../components/ItemDetail';
 import { doc, getDoc } from "firebase/firestore";
 import { db } from '../../firebase/config';
+import Spinner from 'react-bootstrap/Spinner';
 
 const ItemDetailContainer = () => {
 
@@ -52,7 +53,7 @@ const ItemDetailContainer = () => {
     <div>
         {
           Object.keys(detail).length === 0 
-            ? <h2>Loading ...</h2>
+            ? <Spinner animation="grow" variant="success"/>
             : <ItemDetail detail={detail}/>
         }
     </div>

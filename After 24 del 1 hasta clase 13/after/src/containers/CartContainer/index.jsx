@@ -7,6 +7,8 @@ import { db } from '../../firebase/config';
 import { doc, updateDoc } from "firebase/firestore";
 import { Link } from 'react-router-dom';
 import FormComp from '../../components/Form';
+import Spinner from 'react-bootstrap/Spinner';
+
 
 const Cart = () => {
 
@@ -18,15 +20,15 @@ const Cart = () => {
 
   console.log(products)
 
-  const confirmPurchase = async () => {
-
+  const confirmPurchase = async (dataDelFormulario) => {
+    const {phone: telefono, nombre, email} = dataDelFormulario
     try {
       setLoader(true);
   
       const order = generateOrderObject({
-        nombre: "Sebas",
-        email: "sebastian@gmail.com",
-        telefono: "123123123",
+        nombre,
+        email,
+        telefono,
         cart: products,
         total: total()
       })
@@ -55,6 +57,7 @@ const Cart = () => {
       console.log(error);
     } finally {
       setLoader(false);
+      setFormVis(false);
     }
   }
 
@@ -82,7 +85,7 @@ const Cart = () => {
           </table>
           {
             loader ?
-            <h2>Cargando ... </h2>
+            <Spinner animation="grow" variant="success"/>
             :
             <button onClick={()=> setFormVis(true)}>Confirm purchase</button>
           }
@@ -97,8 +100,9 @@ const Cart = () => {
       }
       { formVis ? 
         <FormComp 
-          setFormVis={setFormVis}
-          formVis = {formVis}  
+          confirmPurchase = {confirmPurchase}
+          formVis = {formVis}
+          setFormVis = {setFormVis}
         />
         : null
       }
